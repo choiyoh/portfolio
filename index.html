@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Frontend Engineer | Choi Yohan for UlalaLab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #0b0f1a; color: #e2e8f0; scroll-behavior: smooth; }
+        .glass-card { background: rgba(23, 29, 45, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.5rem; transition: all 0.3s ease; }
+        .glass-card:hover { border-color: #38bdf8; transform: translateY(-4px); }
+        .chart-container { position: relative; width: 100%; max-width: 750px; margin: 0 auto; height: 350px; max-height: 400px; }
+        .gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .highlight-emerald { color: #10b981; }
+        .step-line { position: relative; padding-left: 2rem; border-left: 2px solid rgba(56, 189, 248, 0.2); }
+        .step-dot { position: absolute; left: -0.65rem; top: 0; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 15px #38bdf8; }
+        @media (max-width: 768px) { .chart-container { height: 300px; } }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- 
+Chosen Palette: "Energetic Industrial Blue" (Vibrant, Professional, High-Tech)
+Colors: Primary #38bdf8 (Sky), Secondary #818cf8 (Violet), Dark #0b0f1a, Accent #10b981 (Emerald)
+Confirming: NO SVG, NO MERMAID JS. All visualization via Canvas/Tailwind.
+-->
+
+<!-- 
+Narrative Plan:
+1. Introduction: "From C++/MFC Industrial Roots to Vue 3 Senior Leader".
+2. Section 1: Productivity Paradox - AI-driven workflow resulting in 533% gains.
+3. Section 2: Core Competency for UlalaLab - Focus on Real-time state (Pinia) & Edge Connectivity.
+4. Section 3: Project Analytics - 3D Bubble Chart (Plotly) showing Complexity vs Impact.
+5. Section 4: Performance Funnel - Measuring actual business metric improvements.
+6. Conclusion: Why Choi Yohan fits the Smart Factory vision.
+-->
+
+<!-- 
+Visualization Summary:
+- Productivity Comparison -> Grouped Bar (Chart.js)
+- Skills Alignment -> Radar Chart (Chart.js)
+- Project Impact Matrix -> Bubble Chart (Plotly.js WebGL)
+- Performance Metrics -> Horizontal Bar (Chart.js)
+-->
+
+<nav class="fixed top-0 w-full z-50 bg-[#0b0f1a]/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="text-2xl font-black tracking-tighter gradient-text uppercase">Choi Yohan</div>
+        <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+            <a href="#about" class="hover:text-sky-400 transition">About</a>
+            <a href="#productivity" class="hover:text-sky-400 transition">Productivity</a>
+            <a href="#tech" class="hover:text-sky-400 transition">Tech Mastery</a>
+            <a href="#impact" class="hover:text-sky-400 transition">Impact</a>
+        </div>
+    </div>
+</nav>
+
+<header id="about" class="pt-40 pb-24 px-6 overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+        <div class="inline-flex items-center space-x-3 mb-6">
+            <span class="w-10 h-px bg-sky-500"></span>
+            <span class="text-sky-400 font-bold uppercase text-xs tracking-widest italic">Industrial Experience Architect</span>
+        </div>
+        <h1 class="text-5xl md:text-8xl font-extrabold mb-10 leading-none">
+            데이터의 흐름을 <br>
+            <span class="gradient-text">경험으로 설계합니다.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-4xl leading-relaxed">
+            현대제철 고로 조업 현장에서 **C++/MFC**로 쌓은 '산업 도메인 지식'과, 
+            **Vue 3/Nuxt 3**로 다져진 '최신 웹 아키텍처'가 만났습니다. 
+            울랄라랩의 스마트팩토리 플랫폼이 요구하는 실시간성, 안정성, 그리고 확장성을 책임지는 10년 차 엔지니어입니다.
+        </p>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 space-y-40 pb-40">
+
+    <!-- Productivity Section -->
+    <section id="productivity">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-8">Engineering <span class="text-emerald-400">Agility</span></h2>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                    울랄라랩과 같은 고속 성장 플랫폼에서는 품질과 속도 사이의 균형이 중요합니다. 
+                    저는 **AI 코딩 에이전트(Codex)**를 프론트엔드 아키텍처 설계에 통합하여, 
+                    4개월 분량의 플랫폼 구축 과업을 **단 3주 만에 완수(533% 생산성 향상)**했습니다. 
+                    이는 단순한 코드 생성이 아닌, 엄격한 코드 컨벤션과 모듈화 전략 하에 AI를 통제한 결과입니다.
+                </p>
+                <div class="flex space-x-12">
+                    <div>
+                        <div class="text-4xl font-extrabold text-sky-400">83% ↓</div>
+                        <div class="text-[10px] text-slate-500 uppercase mt-2">Delivery Time</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-extrabold text-violet-400">5.3x ↑</div>
+                        <div class="text-[10px] text-slate-500 uppercase mt-2">Output/Month</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h4 class="text-center text-[10px] uppercase tracking-widest text-slate-500 mb-6">Workflow Optimization: Before vs After AI</h4>
+                <canvas id="productivityChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Mastery Section -->
+    <section id="tech">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl font-bold mb-4">Tech Mastery for <span class="gradient-text">UlalaLab</span></h2>
+            <p class="text-slate-500 max-w-2xl mx-auto">스마트팩토리 플랫폼 구축에 최적화된 6가지 핵심 엔지니어링 역량 분석</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-card p-6 border-l-4 border-sky-500">
+                    <h4 class="font-bold text-sky-400 mb-2 italic text-lg">Enterprise Vue 3</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Composition API와 Pinia를 결합한 복잡한 상태 관리 시스템 구축. 수백 개의 실시간 데이터 포인트를 정합성 있게 처리합니다.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-violet-500">
+                    <h4 class="font-bold text-violet-400 mb-2 italic text-lg">Industrial IoT Insight</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">현대제철 공장 자동화 백오피스 개발 경험. PLC/센서 데이터의 발생 원리와 필터링 로직을 깊이 이해합니다.</p>
+                </div>
+            </div>
+            <div class="lg:col-span-4 chart-container h-[450px]">
+                <canvas id="skillRadarChart"></canvas>
+            </div>
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-card p-6 border-l-4 border-emerald-500">
+                    <h4 class="font-bold text-emerald-400 mb-2 italic text-lg">Edge & Hybrid Bridge</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Electron 및 WebView-Native Bridge 설계 능력. 에지 디바이스와 웹 플랫폼 간의 안정적인 데이터 가교를 형성합니다.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-amber-500">
+                    <h4 class="font-bold text-amber-500 mb-2 italic text-lg">Architectural Scalability</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Vite 기반의 고속 빌드 환경 및 모듈러 디자인 시스템 구축. 지속 가능한 플랫폼 성장을 위한 기초를 다집니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Path Section (HTML/CSS Step Design) -->
+    <section>
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold italic">The Evolution Path</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="step-line">
+                <div class="step-dot"></div>
+                <h4 class="text-lg font-black text-sky-400 mb-2 uppercase tracking-tighter">Foundation</h4>
+                <p class="text-[10px] text-slate-500 mb-4 tracking-widest font-bold">Hyundai Steel (C++/MFC)</p>
+                <p class="text-sm text-slate-400 leading-relaxed">대형 고로 생산 조업 시스템 및 실적 산정 자동화. **산업 도메인 지식의 뿌리**</p>
+            </div>
+            <div class="step-line">
+                <div class="step-dot bg-violet-500" style="box-shadow: 0 0 15px #818cf8;"></div>
+                <h4 class="text-lg font-black text-violet-400 mb-2 uppercase tracking-tighter">Modernization</h4>
+                <p class="text-[10px] text-slate-500 mb-4 tracking-widest font-bold">Sibme / Global (Web Standard)</p>
+                <p class="text-sm text-slate-400 leading-relaxed">글로벌 서비스 리뉴얼 및 웹 표준 최적화. **프론트엔드 전문성의 확장**</p>
+            </div>
+            <div class="step-line">
+                <div class="step-dot bg-emerald-500" style="box-shadow: 0 0 15px #10b981;"></div>
+                <h4 class="text-lg font-black text-emerald-400 mb-2 uppercase tracking-tighter">Scalability</h4>
+                <p class="text-[10px] text-slate-500 mb-4 tracking-widest font-bold">Hecto Data (Vue 3 Lead)</p>
+                <p class="text-sm text-slate-400 leading-relaxed">복잡한 금융 데이터 파이프라인 및 마이그레이션 주도. **아키텍처 설계 역량의 정점**</p>
+            </div>
+            <div class="step-line">
+                <div class="step-dot bg-white" style="box-shadow: 0 0 20px #fff;"></div>
+                <h4 class="text-lg font-black text-white mb-2 uppercase tracking-tighter">Innovation</h4>
+                <p class="text-[10px] text-slate-500 mb-4 tracking-widest font-bold">Current (AI-Driven)</p>
+                <p class="text-sm text-slate-400 leading-relaxed">AI 에이전트를 활용한 초고속 플랫폼 생산성 실험. **미래 지향적 엔지니어링**</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Analytics Section -->
+    <section id="impact">
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Project Impact Analysis</h2>
+            <p class="text-slate-500">주요 프로젝트의 기술적 복잡도와 비즈니스 가치 사이의 상관관계 (Plotly WebGL 렌더링)</p>
+        </div>
+        <div class="glass-card p-8">
+            <div id="impactBubbleChart" class="w-full h-[500px]"></div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="chart-container">
+                    <h4 class="text-[10px] text-slate-500 uppercase tracking-widest mb-4 text-center">UX & System Optimization Metrics (%)</h4>
+                    <canvas id="metricBarChart"></canvas>
+                </div>
+                <div class="flex flex-col justify-center space-y-6">
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-bold text-slate-500 uppercase">Exit Rate Optimization</span>
+                            <span class="text-emerald-400 font-black">-30%</span>
+                        </div>
+                        <p class="text-xs text-slate-400">인터랙티브 스텝 폼 도입으로 유저 이탈률을 획기적으로 낮췄습니다.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-bold text-slate-500 uppercase">System Maintenance Cost</span>
+                            <span class="text-sky-400 font-black">-50%</span>
+                        </div>
+                        <p class="text-xs text-slate-400">공통 컴포넌트 라이브러리 구축으로 신규 페이지 대응 공수를 절감했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why UlalaLab Section -->
+    <section>
+        <div class="relative glass-card p-12 md:p-20 overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-sky-500/10 blur-[120px] rounded-full"></div>
+            <div class="relative z-10 text-center">
+                <h2 class="text-4xl font-extrabold mb-8 italic">Why UlalaLab needs <span class="gradient-text">Choi Yohan</span></h2>
+                <p class="text-xl text-slate-400 max-w-4xl mx-auto leading-relaxed mb-12">
+                    울랄라랩의 스마트팩토리 비전은 데이터의 가치화입니다. 
+                    저는 **현장의 언어(Industrial Context)**를 이해하고, 이를 **최첨단 웹 기술(Modern Frontend)**로 가장 빠르고 정확하게 번역할 수 있는 사람입니다. 
+                    단순히 기능이 동작하는 웹이 아닌, **데이터 정합성이 보장되고 유저가 행동하게 만드는 플랫폼**을 울랄라랩에서 실현하겠습니다.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-6 py-2 rounded-full border border-sky-500/30 bg-sky-500/5 text-sky-400 font-bold text-sm">Industrial Insight</span>
+                    <span class="px-6 py-2 rounded-full border border-violet-500/30 bg-violet-500/5 text-violet-400 font-bold text-sm">Vue 3 / Pinia Mastery</span>
+                    <span class="px-6 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 font-bold text-sm">AI Productivity Expert</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-slate-950 py-24 px-6 border-t border-white/5 text-center">
+    <div class="max-w-4xl mx-auto">
+        <h3 class="text-3xl font-black gradient-text mb-6">READY TO LEAD THE FACTORY INNOVATION</h3>
+        <p class="text-slate-500 mb-12 uppercase tracking-widest text-xs font-bold">Senior Experience Architect | Choi Yohan</p>
+        <div class="flex justify-center space-x-12 text-sm">
+            <div class="text-left">
+                <div class="text-slate-600 uppercase text-[10px] font-bold mb-2 tracking-tighter">Status</div>
+                <div class="font-bold text-emerald-400 italic">Available to Join</div>
+            </div>
+            <div class="text-left">
+                <div class="text-slate-600 uppercase text-[10px] font-bold mb-2 tracking-tighter">Contact</div>
+                <div class="font-bold">Resume Attached</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Label Wrapping (16 chars)
+    function wrapLabels(labels) {
+        return labels.map(label => {
+            if (typeof label !== 'string' || label.length <= 16) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + ' ' + words[i]).length <= 16) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        });
+    }
+
+    // Common Tooltip Config
+    const commonTooltip = {
+        callbacks: {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            }
+        }
+    };
+
+    // 1. Productivity Chart
+    const ctxProd = document.getElementById('productivityChart').getContext('2d');
+    new Chart(ctxProd, {
+        type: 'bar',
+        data: {
+            labels: wrapLabels(['Standard Dev Cycle (Traditional)', 'AI-Augmented Cycle (Choi Yohan)']),
+            datasets: [
+                {
+                    label: 'Lead Time (Weeks)',
+                    data: [16, 3],
+                    backgroundColor: ['rgba(255,255,255,0.05)', '#38bdf8'],
+                    borderRadius: 8,
+                    barThickness: 60
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: commonTooltip
+            },
+            scales: {
+                y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b', font: { size: 10 } } },
+                x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 11, weight: 'bold' } } }
+            }
+        }
+    });
+
+    // 2. Skill Radar Chart
+    const ctxRadar = document.getElementById('skillRadarChart').getContext('2d');
+    new Chart(ctxRadar, {
+        type: 'radar',
+        data: {
+            labels: wrapLabels(['Enterprise Vue 3 Architecture', 'IoT/Industrial Insight', 'AI Productivity Mastery', 'State & Data Integrity', 'Edge/Hybrid Integration', 'Performance Optimization']),
+            datasets: [{
+                label: 'Expertise',
+                data: [98, 92, 97, 95, 88, 93],
+                backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                borderColor: '#38bdf8',
+                borderWidth: 2,
+                pointBackgroundColor: '#38bdf8',
+                pointBorderColor: '#fff',
+                pointHoverRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: commonTooltip
+            },
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(255,255,255,0.05)' },
+                    grid: { color: 'rgba(255,255,255,0.1)' },
+                    pointLabels: { color: '#94a3b8', font: { size: 9, weight: 'bold' } },
+                    ticks: { display: false, stepSize: 20 },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                }
+            }
+        }
+    });
+
+    // 3. Project Matrix (Plotly WebGL)
+    const trace = {
+        x: [75, 95, 88, 65, 45], // Complexity
+        y: [90, 98, 85, 70, 55], // Business Value
+        text: ['Hybrid App Bridge', 'AI Workflow System', 'IoT Dashboard', 'Legacy Migration', 'Kiosk Admin'],
+        mode: 'markers+text',
+        marker: {
+            size: [60, 90, 50, 45, 35],
+            color: ['#38bdf8', '#10b981', '#818cf8', '#6366f1', '#94a3b8'],
+            opacity: 0.7,
+            line: { color: 'rgba(255,255,255,0.1)', width: 1 }
+        },
+        textposition: 'top center',
+        textfont: { family: 'Pretendard', color: '#64748b', size: 10 }
+    };
+
+    const layout = {
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        xaxis: { title: 'Technical Complexity (%)', color: '#475569', gridcolor: 'rgba(255,255,255,0.03)', zeroline: false, range: [0, 110] },
+        yaxis: { title: 'Business Value (%)', color: '#475569', gridcolor: 'rgba(255,255,255,0.03)', zeroline: false, range: [0, 110] },
+        margin: { t: 20, b: 40, l: 50, r: 10 },
+        showlegend: false,
+        font: { family: 'Pretendard' }
+    };
+
+    Plotly.newPlot('impactBubbleChart', [trace], layout, { responsive: true, displayModeBar: false });
+
+    // 4. Metric Bar Chart
+    const ctxMetric = document.getElementById('metricBarChart').getContext('2d');
+    new Chart(ctxMetric, {
+        type: 'bar',
+        data: {
+            labels: wrapLabels(['User Retention (Mobile)', 'Data Error Rate', 'Initial Page Load Time', 'Dev Resource Cost']),
+            datasets: [
+                {
+                    label: 'Before Optimization',
+                    data: [100, 100, 100, 100],
+                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    borderRadius: 4
+                },
+                {
+                    label: 'After Optimization',
+                    data: [200, 10, 42, 50],
+                    backgroundColor: '#10b981',
+                    borderRadius: 4
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { labels: { color: '#64748b', font: { size: 10 } } },
+                tooltip: commonTooltip
+            },
+            scales: {
+                x: { display: false, max: 250 },
+                y: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
