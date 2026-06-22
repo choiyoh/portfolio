@@ -7,14 +7,14 @@
       <div class="hero-content">
         <div class="hero-tag">
           <span class="tag-line"></span>
-          <span class="tag-text">Senior Frontend Architect</span>
+          <span class="tag-text">{{ hero.eyebrow }}</span>
         </div>
         <h1 class="hero-title">
-          데이터의 흐름을<br>
-          <span class="text-gradient">경험으로 설계합니다.</span>
+          {{ titleLines[0] }}<br>
+          <span class="text-accent">{{ titleLines[1] }}</span>
         </h1>
         <p class="hero-description">
-          10년 차 프론트엔드 엔지니어로서 <strong>Vue 3, TypeScript, Nuxt.js</strong> 생태계를 기반으로 확장 가능하고 견고한 웹 아키텍처를 주도해 왔습니다. C++/MFC 기반 공장 자동화 백오피스부터 고성능 B2B 핀테크 플랫폼, AI 주도 개발 파이프라인 혁신까지 비즈니스 가치와 엔지니어링 생산성을 동시에 극대화합니다.
+          {{ hero.description }}
         </p>
         
         <div class="hero-actions">
@@ -24,25 +24,10 @@
       </div>
       
       <div class="hero-stats">
-        <div class="glass-card stat-card">
-          <div class="stat-num text-gradient">10Y+</div>
-          <div class="stat-label">실무 개발 경력</div>
-          <p class="stat-desc">Industrial C++ & Modern Web</p>
-        </div>
-        <div class="glass-card stat-card">
-          <div class="stat-num text-accent-emerald">533%</div>
-          <div class="stat-label">AI 생산성 혁신</div>
-          <p class="stat-desc">Codex 기반 워크플로우 단축</p>
-        </div>
-        <div class="glass-card stat-card">
-          <div class="stat-num text-accent-sky">-30%</div>
-          <div class="stat-label">퍼널 이탈률 감소</div>
-          <p class="stat-desc">UX 개선 및 인터랙션 최적화</p>
-        </div>
-        <div class="glass-card stat-card">
-          <div class="stat-num text-accent-violet">200%</div>
-          <div class="stat-label">유저 리텐션 향상</div>
-          <p class="stat-desc">실시간 상태 관리 기반 기능 구현</p>
+        <div v-for="stat in hero.stats" :key="stat.label" class="glass-card stat-card">
+          <div class="stat-num" :class="stat.colorClass">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+          <p class="stat-desc">{{ stat.description }}</p>
         </div>
       </div>
     </div>
@@ -50,7 +35,10 @@
 </template>
 
 <script setup lang="ts">
-// Logic if needed in the future
+import { computed } from 'vue';
+import { hero } from '../data/profile';
+
+const titleLines = computed(() => hero.title.split('\n'));
 </script>
 
 <style scoped>
@@ -115,10 +103,6 @@
   margin-bottom: 2.5rem;
 }
 
-.hero-description strong {
-  color: var(--text-primary);
-}
-
 .hero-actions {
   display: flex;
   gap: 1rem;
@@ -131,14 +115,14 @@
 }
 
 .stat-card {
-  padding: 1.75rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .stat-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
 }
 
 .stat-num {

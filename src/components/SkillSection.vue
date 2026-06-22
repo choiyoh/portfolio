@@ -2,53 +2,46 @@
   <section id="skills" class="section">
     <div class="glow-blur glow-violet"></div>
     <div class="container">
-      <h2 class="section-title">Core Competencies</h2>
-      <p class="section-subtitle">프론트엔드 전문성을 축으로 비즈니스와 개발 환경을 혁신하는 핵심 기술력입니다.</p>
+      <h2 class="section-title">자주 쓰는 기술</h2>
+      <p class="section-subtitle">최근 프로젝트에서 자주 다뤘거나, 문제를 풀 때 자신 있게 꺼내 쓰는 도구들입니다.</p>
 
       <div class="skills-layout">
-        <!-- 핵심 기술 설명 (왼쪽) -->
         <div class="skills-highlight">
-          <h3 class="highlight-title">Focus Areas</h3>
+          <h3 class="highlight-title">일할 때 강점이 되는 부분</h3>
           
           <div class="glass-card highlight-card">
-            <div class="card-icon text-accent-sky">✦</div>
+            <div class="card-icon text-accent-sky">01</div>
             <div class="card-info">
-              <h4>Vue/Nuxt 생태계 리더십</h4>
-              <p>Composition API, Pinia 상태 관리, SSR(서버 사이드 렌더링)을 활용한 검색 최적화 및 다중 API 비동기 제어 구조 설계 전문가입니다.</p>
+              <h4>제품형 프론트엔드 개발</h4>
+              <p>SSR, 상태 관리, API 정규화, 컴포넌트 구조화를 통해 검색 유입과 서비스 안정성을 함께 챙깁니다.</p>
             </div>
           </div>
 
           <div class="glass-card highlight-card">
-            <div class="card-icon text-accent-emerald">⚡</div>
+            <div class="card-icon text-accent-emerald">02</div>
             <div class="card-info">
-              <h4>AI 주도 개발 (AI-Driven Development)</h4>
-              <p>AI 에이전트를 개발 파이프라인에 주도적으로 도입하여 시스템 설계 원칙 아래 개발 생산성을 530% 이상 극대화한 실전 경험을 보유하고 있습니다.</p>
+              <h4>AI 기반 개발 워크플로우</h4>
+              <p>반복 구현을 AI 에이전트로 가속하되, 설계 기준과 리뷰 흐름은 사람이 통제하는 방식으로 품질을 관리합니다.</p>
             </div>
           </div>
 
           <div class="glass-card highlight-card">
-            <div class="card-icon text-accent-violet">❖</div>
+            <div class="card-icon text-accent-violet">03</div>
             <div class="card-info">
-              <h4>크로스플랫폼 및 하이브리드 UX</h4>
-              <p>Electron, Quasar, Cordova를 비롯하여 WebView-Native Bridge를 직접 커스텀 설계하여 모바일과 데스크톱 한계를 극복해 왔습니다.</p>
+              <h4>하이브리드/레거시 전환</h4>
+              <p>모바일 웹뷰, Electron, 레거시 마이그레이션처럼 제약이 많은 환경에서 운영 가능한 구조를 만듭니다.</p>
             </div>
           </div>
         </div>
 
-        <!-- 기술 스택 그룹별 그리드 (오른쪽) -->
         <div class="skills-groups">
           <div v-for="group in skillGroups" :key="group.title" class="glass-card skill-group-card">
-            <h4 class="group-title text-gradient">{{ group.title }}</h4>
-            <div class="skills-list">
-              <div v-for="skill in group.skills" :key="skill.name" class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">{{ skill.name }}</span>
-                  <span class="skill-level">{{ skill.level }}</span>
-                </div>
-                <div class="progress-bar-bg">
-                  <div class="progress-bar-fill" :style="{ width: skill.percent + '%', background: group.color }"></div>
-                </div>
-              </div>
+            <div class="group-heading">
+              <h4 class="group-title text-accent">{{ group.title }}</h4>
+              <span class="group-level">{{ group.level }}</span>
+            </div>
+            <div class="skill-chip-list">
+              <span v-for="skill in group.skills" :key="skill" class="badge">{{ skill }}</span>
             </div>
           </div>
         </div>
@@ -58,70 +51,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
-interface Skill {
-  name: string;
-  level: string;
-  percent: number;
-}
-
-interface SkillGroup {
-  title: string;
-  color: string;
-  skills: Skill[];
-}
-
-const skillGroups = ref<SkillGroup[]>([
-  {
-    title: 'Frameworks',
-    color: 'var(--color-sky)',
-    skills: [
-      { name: 'Vue.js (Vue 3 & 2)', level: 'Expert', percent: 95 },
-      { name: 'Nuxt.js', level: 'Expert', percent: 90 },
-      { name: 'React.js / Next.js', level: 'Intermediate', percent: 75 }
-    ]
-  },
-  {
-    title: 'State & Tooling',
-    color: 'var(--color-violet)',
-    skills: [
-      { name: 'Pinia / Vuex', level: 'Expert', percent: 95 },
-      { name: 'Vite / Webpack', level: 'Advanced', percent: 85 },
-      { name: 'Git & GitHub Actions', level: 'Advanced', percent: 85 }
-    ]
-  },
-  {
-    title: 'Hybrid / Desktop',
-    color: 'var(--color-emerald)',
-    skills: [
-      { name: 'WebView-Native Bridge', level: 'Expert', percent: 90 },
-      { name: 'Quasar / Cordova', level: 'Advanced', percent: 85 },
-      { name: 'Electron', level: 'Advanced', percent: 80 }
-    ]
-  },
-  {
-    title: 'Methodology & Innovation',
-    color: 'var(--color-amber)',
-    skills: [
-      { name: 'AI Coding (Codex) / Prompting', level: 'Expert', percent: 95 },
-      { name: 'Atomic Design & Modularity', level: 'Advanced', percent: 85 },
-      { name: 'C++ / MFC (Industrial System)', level: 'Prior Exp', percent: 70 }
-    ]
-  }
-]);
+import { skillGroups } from '../data/profile';
 </script>
 
 <style scoped>
 .skills-layout {
   display: grid;
-  grid-template-cols: 0.9fr 1.1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 3rem;
 }
 
 @media (max-width: 1024px) {
   .skills-layout {
-    grid-template-cols: 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
@@ -148,9 +90,11 @@ const skillGroups = ref<SkillGroup[]>([
 }
 
 .card-icon {
-  font-size: 1.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
   font-weight: 900;
   line-height: 1;
+  letter-spacing: 0;
 }
 
 .card-info h4 {
@@ -168,13 +112,13 @@ const skillGroups = ref<SkillGroup[]>([
 
 .skills-groups {
   display: grid;
-  grid-template-cols: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
 @media (max-width: 576px) {
   .skills-groups {
-    grid-template-cols: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -183,52 +127,33 @@ const skillGroups = ref<SkillGroup[]>([
   height: 100%;
 }
 
-.group-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.skill-info {
+.group-heading {
   display: flex;
   justify-content: space-between;
-  font-size: 0.85rem;
-  font-weight: 600;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
 }
 
-.skill-name {
-  color: var(--text-primary);
+.group-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
-.skill-level {
-  color: var(--text-muted);
+.group-level {
+  flex-shrink: 0;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
-.progress-bar-bg {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+.skill-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 </style>

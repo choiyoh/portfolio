@@ -2,74 +2,67 @@
   <section id="contact" class="section">
     <div class="glow-blur glow-sky"></div>
     <div class="container">
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-subtitle">새로운 도전과 혁신을 함께할 준비가 되어 있습니다. 편하게 연락해 주세요.</p>
+      <h2 class="section-title">연락처</h2>
+      <p class="section-subtitle">더 자세한 이력은 PDF로 확인하실 수 있고, 연락은 이메일로 편하게 주시면 됩니다.</p>
 
       <div class="contact-layout">
-        <!-- 학력 & 자격증 정보 (왼쪽) -->
         <div class="glass-card info-card">
-          <h3 class="info-card-title text-gradient">Qualifications</h3>
+          <h3 class="info-card-title text-accent">학력과 자격</h3>
           
           <div class="info-section">
-            <h4 class="info-sec-title">Education</h4>
+            <h4 class="info-sec-title">학력</h4>
             <div class="info-item">
               <span class="info-duration">2007.03 ~ 2015.02</span>
-              <span class="info-main">한동대학교 (4년제) 졸업</span>
-              <span class="info-sub">전산전자공학부 학사 학위 취득</span>
+              <span class="info-main">한동대학교 졸업</span>
+              <span class="info-sub">전산전자공학부 학사</span>
             </div>
           </div>
 
           <div class="info-section">
-            <h4 class="info-sec-title">Certifications</h4>
+            <h4 class="info-sec-title">자격</h4>
             <div class="cert-grid">
               <div class="cert-item">
                 <span class="cert-name">정보처리기사</span>
-                <span class="cert-date">2016.07 (한국산업인력공단)</span>
+                <span class="cert-date">2016.07 / 한국산업인력공단</span>
               </div>
               <div class="cert-item">
                 <span class="cert-name">워드프로세서 1급</span>
-                <span class="cert-date">2003.07 (대한상공회의소)</span>
+                <span class="cert-date">대한상공회의소</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 연락처 & 소셜 링크 (오른쪽) -->
         <div class="glass-card contact-card">
-          <h3 class="info-card-title text-gradient">Contact Detail</h3>
+          <h3 class="info-card-title text-accent">연락</h3>
           <p class="contact-pitch">
-            10년의 여정 동안 쌓아 올린 탄탄한 기본기와 실시간 상태 관리, 최신 AI 기반 생산성 노하우를 바탕으로 서비스의 가치를 한 단계 더 끌어올리겠습니다.
+            금융/데이터 플랫폼, 제품형 프론트엔드 개발, 레거시 전환 경험이 필요한 팀과 잘 맞습니다.
           </p>
 
           <div class="contact-methods">
-            <div class="method-item">
+            <a :href="contact.emailHref" class="method-item">
               <div class="method-icon">✉</div>
               <div class="method-details">
-                <span class="method-label">Email</span>
-                <span class="method-value">cho****@naver.com</span>
+                <span class="method-label">이메일</span>
+                <span class="method-value">{{ contact.email }}</span>
               </div>
-            </div>
+            </a>
 
             <div class="method-item">
-              <div class="method-icon">☎</div>
+              <div class="method-icon">⌂</div>
               <div class="method-details">
-                <span class="method-label">Phone</span>
-                <span class="method-value">010-****-3777</span>
-              </div>
-            </div>
-
-            <div class="method-item">
-              <div class="method-icon">⚲</div>
-              <div class="method-details">
-                <span class="method-label">Location</span>
-                <span class="method-value">충남 아산시 배방읍 광장로</span>
+                <span class="method-label">위치</span>
+                <span class="method-value">{{ contact.location }}</span>
               </div>
             </div>
           </div>
 
           <div class="social-links">
-            <a href="https://github.com" target="_blank" class="social-btn">
-              <span>GitHub Profile</span>
+            <a :href="contact.github" target="_blank" rel="noreferrer" class="social-btn">
+              <span>GitHub</span>
+            </a>
+            <a :href="contact.resumeHref" download class="social-btn social-btn-outline">
+              <span>이력서 PDF</span>
             </a>
           </div>
         </div>
@@ -79,12 +72,13 @@
 </template>
 
 <script setup lang="ts">
+import { contact } from '../data/profile';
 </script>
 
 <style scoped>
 .contact-layout {
   display: grid;
-  grid-template-cols: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   max-width: 1000px;
   margin: 0 auto;
@@ -92,23 +86,22 @@
 
 @media (max-width: 768px) {
   .contact-layout {
-    grid-template-cols: 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
 
 .info-card, .contact-card {
-  padding: 2.5rem;
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
 }
 
 .info-card-title {
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   font-weight: 800;
   margin-bottom: 2rem;
   font-family: 'Outfit', sans-serif;
-  text-transform: uppercase;
 }
 
 .info-section {
@@ -120,10 +113,9 @@
 }
 
 .info-sec-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-sky);
-  text-transform: uppercase;
   margin-bottom: 1rem;
   font-family: 'Outfit', sans-serif;
 }
@@ -154,17 +146,17 @@
 
 .cert-grid {
   display: grid;
-  grid-template-cols: 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
 .cert-item {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: var(--surface-subtle);
+  border: 1px solid var(--surface-line);
   padding: 0.85rem 1.25rem;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .cert-name {
@@ -203,13 +195,13 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
-  background: rgba(14, 165, 233, 0.1);
-  border: 1px solid rgba(14, 165, 233, 0.2);
+  background: rgba(31, 111, 104, 0.1);
+  border: 1px solid rgba(31, 111, 104, 0.2);
   color: var(--color-sky);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .method-details {
@@ -221,7 +213,6 @@
   font-size: 0.75rem;
   color: var(--text-muted);
   font-weight: 600;
-  text-transform: uppercase;
   font-family: 'Outfit', sans-serif;
 }
 
@@ -233,6 +224,8 @@
 
 .social-links {
   margin-top: auto;
+  display: grid;
+  gap: 0.85rem;
 }
 
 .social-btn {
@@ -241,16 +234,29 @@
   justify-content: center;
   padding: 0.8rem 1.5rem;
   width: 100%;
-  background: var(--gradient-primary);
+  background: var(--accent-primary);
   color: white;
   font-weight: 600;
   font-family: 'Outfit', sans-serif;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(31, 111, 104, 0.18);
 }
 
 .social-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  background: var(--accent-secondary);
+  box-shadow: 0 14px 28px rgba(165, 82, 61, 0.2);
+}
+
+.social-btn-outline {
+  background: transparent;
+  border: 1px solid var(--glass-border-hover);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+.social-btn-outline:hover {
+  background: rgba(31, 111, 104, 0.08);
+  box-shadow: none;
 }
 </style>

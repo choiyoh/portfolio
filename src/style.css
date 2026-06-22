@@ -2,38 +2,40 @@
 
 :root {
   /* Color Palette */
-  --bg-primary: #030712;
-  --bg-secondary: #0b0f19;
-  --bg-tertiary: #111827;
+  --bg-primary: #f4eddf;
+  --bg-secondary: #fffaf0;
+  --bg-tertiary: #eadfcb;
   
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+  --text-primary: #27323a;
+  --text-secondary: #5f6870;
+  --text-muted: #8b8173;
   
-  --color-sky: #0ea5e9;
-  --color-sky-glow: rgba(14, 165, 233, 0.15);
-  --color-violet: #8b5cf6;
-  --color-violet-glow: rgba(139, 92, 246, 0.15);
-  --color-emerald: #10b981;
-  --color-emerald-glow: rgba(16, 185, 129, 0.15);
-  --color-amber: #f59e0b;
+  --color-sky: #1f6f68;
+  --color-sky-glow: rgba(31, 111, 104, 0.12);
+  --color-violet: #a5523d;
+  --color-violet-glow: rgba(165, 82, 61, 0.13);
+  --color-emerald: #587a52;
+  --color-emerald-glow: rgba(88, 122, 82, 0.13);
+  --color-amber: #b9832f;
   
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--color-sky) 0%, var(--color-violet) 100%);
-  --gradient-success: linear-gradient(135deg, var(--color-emerald) 0%, var(--color-sky) 100%);
-  --gradient-dark: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  /* Surfaces */
+  --accent-primary: var(--color-sky);
+  --accent-secondary: var(--color-violet);
+  --page-background: #f4eddf;
   
   /* Glassmorphism */
-  --glass-bg: rgba(17, 24, 39, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-border-hover: rgba(14, 165, 233, 0.3);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --glass-blur: blur(12px);
+  --glass-bg: rgba(255, 250, 240, 0.76);
+  --glass-border: rgba(78, 62, 43, 0.12);
+  --glass-border-hover: rgba(31, 111, 104, 0.36);
+  --glass-shadow: 0 18px 45px 0 rgba(77, 62, 45, 0.13);
+  --glass-blur: blur(14px);
+  --surface-subtle: rgba(78, 62, 43, 0.045);
+  --surface-line: rgba(78, 62, 43, 0.1);
   
   /* Layout Options */
   --max-width: 1200px;
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Base resets & styles */
@@ -54,7 +56,7 @@ html {
 
 body {
   overflow-x: hidden;
-  background: var(--gradient-dark);
+  background: var(--page-background);
   min-height: 100vh;
   line-height: 1.6;
 }
@@ -62,7 +64,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.2;
 }
 
@@ -102,6 +104,7 @@ a {
 .section {
   padding: 6rem 0;
   position: relative;
+  overflow: hidden;
 }
 
 .section-title {
@@ -122,7 +125,7 @@ a {
   left: 15%;
   width: 70%;
   height: 4px;
-  background: var(--gradient-primary);
+  background: var(--accent-primary);
   border-radius: 2px;
 }
 
@@ -137,16 +140,12 @@ a {
 }
 
 /* Typography Helpers */
-.text-gradient {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-accent {
+  color: var(--accent-primary);
 }
 
-.text-gradient-success {
-  background: var(--gradient-success);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-accent-success {
+  color: var(--color-emerald);
 }
 
 .text-accent-sky { color: var(--color-sky); }
@@ -162,7 +161,7 @@ a {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: 1.25rem;
+  border-radius: 8px;
   padding: 2rem;
   box-shadow: var(--glass-shadow);
   transition: var(--transition-smooth);
@@ -177,15 +176,15 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+  background: rgba(255, 255, 255, 0.24);
   pointer-events: none;
   z-index: 1;
 }
 
 .glass-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   border-color: var(--glass-border-hover);
-  box-shadow: 0 12px 40px 0 rgba(14, 165, 233, 0.1);
+  box-shadow: 0 18px 45px 0 rgba(31, 111, 104, 0.14);
 }
 
 /* Button Styles */
@@ -197,7 +196,7 @@ a {
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
-  border-radius: 50px;
+  border-radius: 999px;
   cursor: pointer;
   transition: var(--transition-bounce);
   border: 1px solid transparent;
@@ -205,14 +204,15 @@ a {
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
+  background: var(--accent-primary);
   color: white;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 24px rgba(31, 111, 104, 0.18);
 }
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+  background: var(--accent-secondary);
+  box-shadow: 0 14px 30px rgba(165, 82, 61, 0.2);
 }
 
 .btn-outline {
@@ -222,7 +222,7 @@ a {
 }
 
 .btn-outline:hover {
-  background: rgba(14, 165, 233, 0.1);
+  background: rgba(31, 111, 104, 0.08);
   border-color: var(--color-sky);
   transform: scale(1.05);
 }
@@ -233,8 +233,8 @@ a {
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 600;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.56);
   border: 1px solid var(--glass-border);
   color: var(--text-secondary);
   transition: var(--transition-smooth);
@@ -246,20 +246,20 @@ a {
 }
 
 .badge-sky {
-  background: rgba(14, 165, 233, 0.1);
-  border-color: rgba(14, 165, 233, 0.2);
+  background: rgba(31, 111, 104, 0.1);
+  border-color: rgba(31, 111, 104, 0.2);
   color: var(--color-sky);
 }
 
 .badge-violet {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.2);
+  background: rgba(165, 82, 61, 0.1);
+  border-color: rgba(165, 82, 61, 0.2);
   color: var(--color-violet);
 }
 
 .badge-emerald {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(88, 122, 82, 0.1);
+  border-color: rgba(88, 122, 82, 0.2);
   color: var(--color-emerald);
 }
 
@@ -293,10 +293,10 @@ a {
 /* Background Deco Glows */
 .glow-blur {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(110px);
   pointer-events: none;
   z-index: 0;
   animation: pulseGlow 10s infinite ease-in-out;
@@ -305,13 +305,13 @@ a {
 .glow-sky {
   background: var(--color-sky-glow);
   top: 10%;
-  right: -5%;
+  right: -8%;
 }
 
 .glow-violet {
   background: var(--color-violet-glow);
   bottom: 10%;
-  left: -5%;
+  left: -8%;
 }
 
 /* Grid & Flex layouts */

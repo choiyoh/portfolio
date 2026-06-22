@@ -10,11 +10,11 @@ const isScrolled = ref(false);
 const activeSection = ref('home');
 
 const navItems = [
-  { label: 'About', value: 'home' },
-  { label: 'Experience', value: 'experience' },
-  { label: 'Projects', value: 'projects' },
-  { label: 'Skills', value: 'skills' },
-  { label: 'Contact', value: 'contact' }
+  { label: '소개', value: 'home' },
+  { label: '경력', value: 'experience' },
+  { label: '프로젝트', value: 'projects' },
+  { label: '기술', value: 'skills' },
+  { label: '연락', value: 'contact' }
 ];
 
 const handleScroll = () => {
@@ -80,7 +80,7 @@ onUnmounted(() => {
     <!-- Footer -->
     <footer class="footer">
       <div class="container footer-container">
-        <p class="footer-logo">Senior Frontend Architect</p>
+        <p class="footer-logo">Frontend Developer for Product Experience</p>
         <p class="footer-copy">© 2026 Choi Yohan. Powered by Vite, Vue 3 & TypeScript.</p>
       </div>
     </footer>
@@ -91,6 +91,7 @@ onUnmounted(() => {
 .app-wrapper {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 /* Navigation */
@@ -113,7 +114,7 @@ onUnmounted(() => {
   -webkit-backdrop-filter: var(--glass-blur);
   height: 4.5rem;
   border-bottom-color: var(--glass-border);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(77, 62, 45, 0.1);
 }
 
 .nav-container {
@@ -127,10 +128,8 @@ onUnmounted(() => {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
   font-size: 1.4rem;
-  letter-spacing: -0.05em;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: 0;
+  color: var(--accent-primary);
 }
 
 .nav-links {
@@ -160,7 +159,7 @@ onUnmounted(() => {
   left: 50%;
   width: 0;
   height: 2px;
-  background: var(--gradient-primary);
+  background: var(--accent-primary);
   transition: var(--transition-smooth);
   transform: translateX(-50%);
 }
